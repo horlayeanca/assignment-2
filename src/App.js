@@ -6,11 +6,16 @@ import NavBar from "./components/NavBar";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Search from "./components/Search";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Products from "./components/Products";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
+      <ErrorBoundary>
+        <NavBar />
+      </ErrorBoundary>
+
       <div>
         <Routes>
           <Route path="/" element={<Home />}>
@@ -19,6 +24,7 @@ function App() {
             <Route path="/contact" element={<contact />} />
           </Route>
           <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
         </Routes>
