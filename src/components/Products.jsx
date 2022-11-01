@@ -20,17 +20,17 @@ function Products() {
 
   const fetchComments = async (currentPage) => {
     const res = await fetch(
-      `http://localhost:3004/comments?_page=${currentPage}&_limit=12`
+      `http://localhost:3004/comments?_page=${currentPage}&_limit=10`
     );
     const data = await res.json();
     return data;
   };
-  const handleClick = (data) => {
+  const handleClick = async (data) => {
     console.log(data.selected);
 
     let currentPage = data.selected + 1;
 
-    const commentsFromServer = fetchComments(currentPage);
+    const commentsFromServer = await fetchComments(currentPage);
 
     setItems(commentsFromServer);
   };
@@ -38,7 +38,7 @@ function Products() {
   return (
     <div>
       <div className="grid grid-flow-col p-3">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {items.map((item) => {
             return (
               <divv className="card">
