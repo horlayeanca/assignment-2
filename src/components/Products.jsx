@@ -37,19 +37,27 @@ function Products() {
 
   return (
     <div>
-      {items.map((item) => {
-        return (
-          <divv className="flex w-full ">
-            <div className="card flex mb-4 w-1/3 flex-col">
-              <div className="card">
-                <h5 className="">Comment No. {item.id}</h5>
-                <h6 className="">{item.email}</h6>
-                <p className="">{item.body}</p>
-              </div>
-            </div>
-          </divv>
-        );
-      })}
+      <div className="grid grid-flow-col p-3">
+        <div className="grid grid-cols-3 gap-2">
+          {items.map((item) => {
+            return (
+              <divv className="card">
+                <div className="">
+                  <div className="">
+                    <h5 className="text-center text-xl p-3">
+                      Comment No. {item.id}
+                    </h5>
+                    <h6 className="text-left font-bold pb-2">
+                      email: {item.email}
+                    </h6>
+                    <p className="text-black text-justify">{item.body}</p>
+                  </div>
+                </div>
+              </divv>
+            );
+          })}
+        </div>
+      </div>
       <ReactPaginate
         previousLabel={"previous"}
         nextLabel={"next"}
@@ -57,7 +65,7 @@ function Products() {
         pageCount={10}
         marginPagesDisplayed={3}
         onPageChange={handleClick}
-        className="grid grid-flow-col items-center w-full justify-center"
+        className="grid grid-flow-col items-center w-full justify-center mb-5"
         pageClassName="border-2 py-1 px-2 border-gray-400 hover:text-blue-500"
         previousClassName="border-2 py-1 px-2 border-gray-400 hover:text-blue-500"
         nextClassName="border-2 py-1 px-2 border-gray-400 hover:text-blue-500"
