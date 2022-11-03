@@ -24,7 +24,7 @@ function Contact() {
           <textarea
             type="text"
             rows={10}
-            placeholder="message.."
+            placeholder="Message.."
             className="p-2 bg-transparent border-2 m-2 rounded-md text-black focus:outline-none"
           />
           <button
