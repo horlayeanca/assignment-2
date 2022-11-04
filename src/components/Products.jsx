@@ -10,13 +10,12 @@ function Products() {
         `http://localhost:3004/comments?_page=1&_limit=12`
       );
       const data = await res.json();
+
       setItems(data);
     };
 
     getComments();
   }, []);
-
-  console.log(items);
 
   const fetchComments = async (currentPage) => {
     const res = await fetch(
@@ -41,7 +40,7 @@ function Products() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {items.map((item) => {
             return (
-              <divv className="card">
+              <div className="card">
                 <div className="">
                   <div className="">
                     <h5 className="text-center text-xl p-3">
@@ -53,7 +52,7 @@ function Products() {
                     <p className="text-black text-justify">{item.body}</p>
                   </div>
                 </div>
-              </divv>
+              </div>
             );
           })}
         </div>
