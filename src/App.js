@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Search from "./components/Search";
-import Products from "./components/Products";
+const LazyProducts = React.lazy(() => import("./components/Products"));
 
 function App() {
   return (
@@ -20,7 +20,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
+          <Route
+            path="/products"
+            element={
+              <React.Suspense fallback="Loading...">
+                <LazyProducts />
+              </React.Suspense>
+            }
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
         </Routes>
